@@ -1,13 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { CheckCircle2, Loader2, Send } from "lucide-react";
+import { CheckCircle2, Send } from "lucide-react";
 import { useState, type FormEvent } from "react";
 import BookingCalendar from "@/components/ui/BookingCalendar";
 import Container from "@/components/ui/Container";
 import Reveal from "@/components/ui/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
 import services from "@/data/services.json";
+import settings from "@/data/settings.json";
 import team from "@/data/team.json";
 import { cn } from "@/lib/utils";
 
@@ -29,7 +30,7 @@ const DATE_FORMAT = new Intl.DateTimeFormat("uk-UA", {
   month: "long",
 });
 
-type Status = "idle" | "loading" | "success" | "error";
+type Status = "idle" | "success" | "error";
 
 export default function Booking() {
   const [name, setName] = useState("");
@@ -42,33 +43,29 @@ export default function Booking() {
   const [comment, setComment] = useState("");
   const [status, setStatus] = useState<Status>("idle");
 
-  const handleSubmit = async (e: FormEvent) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     if (!name || !phone || !date || !time) {
       setStatus("error");
       return;
     }
-    setStatus("loading");
-    try {
-      const res = await fetch("/api/booking", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name,
-          phone,
-          instagram,
-          service,
-          master,
-          date: date.toISOString(),
-          time,
-          comment,
-        }),
-      });
-      if (!res.ok) throw new Error();
-      setStatus("success");
-    } catch {
-      setStatus("error");
-    }
+    const lines = [
+      "Новий запис з сайту MARAFET STUDIO:",
+      `Ім'я: ${name}`,
+      `Телефон: ${phone}`,
+      instagram && `Instagram: ${instagram}`,
+      `Послуга: ${service}`,
+      `Майстер: ${master}`,
+      `Дата: ${DATE_FORMAT.format(date)}`,
+      `Час: ${time}`,
+      comment && `Коментар: ${comment}`,
+    ].filter(Boolean);
+
+    const whatsappPhone = settings.phone.replace(/\D/g, "");
+    const whatsappUrl = `https://wa.me/${whatsappPhone}?text=${encodeURIComponent(lines.join("\n"))}`;
+
+    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+    setStatus("success");
   };
 
   if (status === "success") {
@@ -86,8 +83,9 @@ export default function Booking() {
               Дякуємо за запис!
             </h3>
             <p className="text-text-secondary">
-              Ми зв&apos;яжемось з вами найближчим часом, щоб підтвердити візит на{" "}
-              {date && DATE_FORMAT.format(date)} о {time}.
+              Ми відкрили WhatsApp з деталями вашого запису на{" "}
+              {date && DATE_FORMAT.format(date)} о {time} — просто натисніть
+              &laquo;Надіслати&raquo;, і ми підтвердимо візит.
             </p>
           </motion.div>
         </Container>
@@ -213,14 +211,9 @@ export default function Booking() {
             <div className="md:col-span-2">
               <button
                 type="submit"
-                disabled={status === "loading"}
-                className="flex w-full items-center justify-center gap-2.5 rounded-btn bg-text-primary px-8 py-4.5 text-base font-medium text-bg transition-opacity hover:opacity-90 disabled:opacity-60"
+                className="flex w-full items-center justify-center gap-2.5 rounded-btn bg-text-primary px-8 py-4.5 text-base font-medium text-bg transition-opacity hover:opacity-90"
               >
-                {status === "loading" ? (
-                  <Loader2 size={18} className="animate-spin" />
-                ) : (
-                  <Send size={17} strokeWidth={1.5} />
-                )}
+                <Send size={17} strokeWidth={1.5} />
                 Записатися зараз
               </button>
             </div>
