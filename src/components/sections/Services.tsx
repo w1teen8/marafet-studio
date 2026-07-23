@@ -48,7 +48,6 @@ export default function Services() {
               <Reveal key={service.id} delay={(i % 4) * 0.08}>
                 <a
                   href="#booking"
-                  data-cursor="link"
                   className="group relative flex h-full flex-col overflow-hidden rounded-28 glass transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_25px_60px_rgba(45,42,41,0.14)]"
                 >
                   <div className="relative aspect-[4/3] w-full overflow-hidden">

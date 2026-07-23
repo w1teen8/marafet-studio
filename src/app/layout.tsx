@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Manrope, Playfair_Display } from "next/font/google";
 import "./globals.css";
-import CursorProvider from "@/components/providers/CursorProvider";
 import SmoothScrollProvider from "@/components/providers/SmoothScrollProvider";
 import Footer from "@/components/layout/Footer";
 import Loader from "@/components/layout/Loader";
@@ -126,7 +125,6 @@ export default function RootLayout({
       <body className="min-h-full bg-bg text-text-primary">
         <Loader />
         <SmoothScrollProvider>
-          <CursorProvider />
           <ScrollProgressBar />
           <Navbar />
           <main>{children}</main>

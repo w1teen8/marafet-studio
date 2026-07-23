@@ -88,21 +88,6 @@ h4,
   letter-spacing: -0.01em;
 }
 
-/* ---------- Luxury cursor ---------- */
-@media (hover: hover) and (pointer: fine) {
-  a,
-  button,
-  [role="button"],
-  input,
-  textarea,
-  select {
-    cursor: none;
-  }
-  body {
-    cursor: none;
-  }
-}
-
 /* ---------- Glass surfaces ---------- */
 @layer components {
   .glass {

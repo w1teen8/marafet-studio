@@ -47,7 +47,6 @@ export default function Team() {
                     <div className="mt-4 flex items-center gap-3">
                       <a
                         href="#booking"
-                        data-cursor="link"
                         className="inline-flex items-center gap-1.5 rounded-btn bg-white px-4 py-2 text-xs font-medium text-text-primary transition-colors hover:bg-accent"
                       >
                         Записатися
@@ -57,7 +56,6 @@ export default function Team() {
                         href={`https://instagram.com`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        data-cursor="link"
                         aria-label={`Instagram ${member.name}`}
                         className="flex h-8 w-8 items-center justify-center rounded-full glass-strong text-white"
                       >

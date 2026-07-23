@@ -19,7 +19,6 @@ export default function StickyBookingButton() {
       {visible && (
         <motion.a
           href="#booking"
-          data-cursor="link"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 30 }}

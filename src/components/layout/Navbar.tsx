@@ -49,7 +49,6 @@ export default function Navbar() {
         <Container className="relative flex items-center justify-between">
           <a
             href="#home"
-            data-cursor="link"
             className="font-display text-lg font-medium tracking-[0.15em] text-text-primary md:text-xl"
           >
             MARAFET
@@ -63,7 +62,6 @@ export default function Navbar() {
               <a
                 key={link.href}
                 href={link.href}
-                data-cursor="link"
                 className="relative text-[0.82rem] uppercase tracking-[0.12em] text-text-primary/80 transition-colors hover:text-text-primary after:absolute after:-bottom-1 after:left-0 after:h-px after:w-0 after:bg-gold after:transition-all after:duration-300 hover:after:w-full"
               >
                 {link.label}

@@ -33,7 +33,6 @@ export default function Footer() {
               href={settings.instagramUrl}
               target="_blank"
               rel="noopener noreferrer"
-              data-cursor="link"
               className="mt-6 inline-flex items-center gap-2 text-sm text-text-primary transition-colors hover:text-gold"
             >
               <InstagramGlyph size={16} strokeWidth={1.5} />

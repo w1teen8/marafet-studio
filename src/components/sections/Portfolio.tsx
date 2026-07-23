@@ -95,7 +95,6 @@ export default function Portfolio() {
                 exit={{ opacity: 0, scale: 0.96 }}
                 transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                 onClick={() => setLightboxIndex(i)}
-                data-cursor="link"
                 className={cn(
                   "group relative mb-5 block w-full overflow-hidden rounded-28 break-inside-avoid",
                   RATIO[item.ratio] ?? "aspect-square",
