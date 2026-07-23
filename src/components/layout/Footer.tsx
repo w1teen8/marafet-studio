@@ -6,9 +6,7 @@ import settings from "@/data/settings.json";
 const LINKS = [
   { href: "#home", label: "Головна" },
   { href: "#services", label: "Послуги" },
-  { href: "#portfolio", label: "Портфоліо" },
   { href: "#about", label: "Про студію" },
-  { href: "#team", label: "Команда" },
   { href: "#reviews", label: "Відгуки" },
   { href: "#faq", label: "FAQ" },
   { href: "#contacts", label: "Контакти" },

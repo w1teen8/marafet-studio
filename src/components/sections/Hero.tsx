@@ -102,7 +102,7 @@ export default function Hero() {
               <Button href="#booking" size="lg" icon={<ArrowRight size={17} />}>
                 Записатися
               </Button>
-              <Button href="#portfolio" variant="outline" size="lg" className="border-white/30 text-white hover:border-white">
+              <Button href={settings.instagramUrl} variant="outline" size="lg" className="border-white/30 text-white hover:border-white">
                 Наші роботи
               </Button>
             </div>
