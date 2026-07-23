@@ -1,0 +1,19 @@
+{
+  "brand": "MARAFET STUDIO",
+  "tagline": "Краса починається з турботи про себе.",
+  "phone": "+380971930103",
+  "phoneDisplay": "097 193 01 03",
+  "instagram": "@_marafet_studio",
+  "instagramUrl": "https://instagram.com/_marafet_studio",
+  "city": "Боярка",
+  "address": "м. Боярка, Київська область",
+  "mapEmbedUrl": "https://www.google.com/maps?q=Боярка,Київська область&output=embed",
+  "mapUrl": "https://maps.google.com/?q=Боярка,Київська область",
+  "workingHours": "Пн–Нд: 09:00 – 20:00",
+  "stats": [
+    { "label": "робіт виконано", "value": "1900+" },
+    { "label": "задоволених клієнтів", "value": "1400+" },
+    { "label": "стерильність", "value": "100%" },
+    { "label": "сертифіковані майстри", "value": "100%" }
+  ]
+}

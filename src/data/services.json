@@ -1,0 +1,82 @@
+[
+  {
+    "id": "manicure",
+    "title": "Манікюр",
+    "slug": "manicure",
+    "icon": "Hand",
+    "description": "Апаратний та комбінований манікюр, зміцнення, покриття гель-лаком преміальних брендів.",
+    "duration": "60–90 хв",
+    "priceFrom": 450,
+    "image": "https://images.unsplash.com/photo-1610992015732-2449b76344bc?w=1200&q=80&auto=format&fit=crop"
+  },
+  {
+    "id": "pedicure",
+    "title": "Педикюр",
+    "slug": "pedicure",
+    "icon": "Footprints",
+    "description": "Апаратний педикюр, догляд за стопами, покриття та розслаблюючі спа-ритуали.",
+    "duration": "75–120 хв",
+    "priceFrom": 650,
+    "image": "https://images.unsplash.com/photo-1526758097130-bab247274f58?w=1200&q=80&auto=format&fit=crop"
+  },
+  {
+    "id": "haircut",
+    "title": "Стрижки",
+    "slug": "haircut",
+    "icon": "Scissors",
+    "description": "Авторські стрижки, укладки та моделювання форми під ваш тип обличчя.",
+    "duration": "45–90 хв",
+    "priceFrom": 500,
+    "image": "https://images.unsplash.com/photo-1560869713-7d0a29430803?w=1200&q=80&auto=format&fit=crop"
+  },
+  {
+    "id": "coloring",
+    "title": "Фарбування волосся",
+    "slug": "coloring",
+    "icon": "Palette",
+    "description": "Балаяж, мелірування, тонування та складне колорування з догляду преміум-лінійок.",
+    "duration": "120–240 хв",
+    "priceFrom": 1400,
+    "image": "https://images.unsplash.com/photo-1554519515-242161756769?w=1200&q=80&auto=format&fit=crop"
+  },
+  {
+    "id": "hair-restoration",
+    "title": "Відновлення волосся",
+    "slug": "hair-restoration",
+    "icon": "Droplets",
+    "description": "Ботокс, кератин, ламінування та глибоке відновлення структури волосся.",
+    "duration": "90–150 хв",
+    "priceFrom": 1200,
+    "image": "https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=1200&q=80&auto=format&fit=crop"
+  },
+  {
+    "id": "care",
+    "title": "Догляд",
+    "slug": "care",
+    "icon": "Leaf",
+    "description": "Доглядові процедури для обличчя і тіла — від чищення до преміальних spa-ритуалів.",
+    "duration": "60–120 хв",
+    "priceFrom": 800,
+    "image": "https://images.unsplash.com/photo-1600334129128-685c5582fd35?w=1200&q=80&auto=format&fit=crop"
+  },
+  {
+    "id": "nail-design",
+    "title": "Дизайн нігтів",
+    "slug": "nail-design",
+    "icon": "Gem",
+    "description": "Авторський nail-art, втирки, розписи та об'ємний дизайн будь-якої складності.",
+    "duration": "30–60 хв",
+    "priceFrom": 150,
+    "image": "https://images.unsplash.com/photo-1519014816548-bf5fe059798b?w=1200&q=80&auto=format&fit=crop"
+  },
+  {
+    "id": "beauty-complex",
+    "title": "Комплекси Beauty",
+    "slug": "beauty-complex",
+    "icon": "Sparkles",
+    "description": "Комбіновані програми краси — кілька процедур в один візит з вигодою за часом.",
+    "duration": "3–5 год",
+    "priceFrom": 2200,
+    "image": "https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?w=1200&q=80&auto=format&fit=crop"
+  }
+]
