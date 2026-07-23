@@ -100,18 +100,17 @@ export default function Portfolio() {
                   RATIO[item.ratio] ?? "aspect-square",
                 )}
               >
-                {item.category === "before-after" && item.before ? (
-                  <div className="pointer-events-none h-full w-full">
-                    <BeforeAfterSlider before={item.before} after={item.image} alt={item.title} />
-                  </div>
-                ) : (
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
-                  />
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                />
+                {item.category === "before-after" && (
+                  <span className="pointer-events-none absolute left-3 top-3 rounded-full bg-black/45 px-3 py-1 text-[0.65rem] uppercase tracking-[0.15em] text-white backdrop-blur">
+                    До / Після
+                  </span>
                 )}
                 <div className="pointer-events-none absolute inset-0 flex items-end bg-gradient-to-t from-text-primary/60 via-transparent to-transparent p-5 opacity-0 transition-opacity duration-400 group-hover:opacity-100">
                   <span className="flex items-center gap-2 text-sm font-medium text-white">
