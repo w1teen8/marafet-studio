@@ -28,6 +28,7 @@ export interface TeamMember {
   instagram: string;
   photo: string;
   bio: string;
+  categories: string[];
 }
 
 export interface GalleryItem {

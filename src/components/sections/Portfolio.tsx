@@ -1,7 +1,7 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { ChevronLeft, ChevronRight, Expand, X } from "lucide-react";
+import { ChevronLeft, ChevronRight, Expand, Plus, X } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
 import Container from "@/components/ui/Container";
@@ -18,20 +18,24 @@ const CATEGORIES = [
   { id: "makeup", label: "Макіяж" },
 ];
 
-const RATIO: Record<string, string> = {
-  portrait: "aspect-[3/4]",
-  square: "aspect-square",
-  tall: "aspect-[2/3]",
-};
+const INITIAL_COUNT = 6;
 
 export default function Portfolio() {
   const [active, setActive] = useState("all");
+  const [visibleCount, setVisibleCount] = useState(INITIAL_COUNT);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   const filtered = useMemo(
     () => gallery.filter((item) => active === "all" || item.category === active),
     [active],
   );
+
+  const visible = filtered.slice(0, visibleCount);
+  const hasMore = visibleCount < filtered.length;
+
+  useEffect(() => {
+    setVisibleCount(INITIAL_COUNT);
+  }, [active]);
 
   const current = lightboxIndex !== null ? filtered[lightboxIndex] : null;
 
@@ -82,9 +86,9 @@ export default function Portfolio() {
           ))}
         </div>
 
-        <motion.div layout className="mt-10 columns-1 gap-5 sm:columns-2 lg:columns-3">
+        <motion.div layout className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3">
           <AnimatePresence mode="popLayout">
-            {filtered.map((item, i) => (
+            {visible.map((item, i) => (
               <motion.button
                 key={item.id}
                 layout
@@ -93,21 +97,18 @@ export default function Portfolio() {
                 exit={{ opacity: 0, scale: 0.96 }}
                 transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                 onClick={() => setLightboxIndex(i)}
-                className={cn(
-                  "group relative mb-5 block w-full overflow-hidden rounded-28 break-inside-avoid",
-                  RATIO[item.ratio ?? "square"] ?? "aspect-square",
-                )}
+                className="group relative block aspect-square w-full overflow-hidden rounded-28"
               >
                 <Image
                   src={item.image}
                   alt={item.title}
                   fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  sizes="(max-width: 640px) 50vw, 33vw"
                   className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                 />
-                <div className="pointer-events-none absolute inset-0 flex items-end bg-gradient-to-t from-text-primary/60 via-transparent to-transparent p-5 opacity-0 transition-opacity duration-400 group-hover:opacity-100">
-                  <span className="flex items-center gap-2 text-sm font-medium text-white">
-                    <Expand size={14} strokeWidth={1.5} />
+                <div className="pointer-events-none absolute inset-0 flex items-end bg-gradient-to-t from-text-primary/60 via-transparent to-transparent p-4 opacity-0 transition-opacity duration-400 group-hover:opacity-100">
+                  <span className="flex items-center gap-1.5 text-xs font-medium text-white">
+                    <Expand size={12} strokeWidth={1.5} />
                     {item.title}
                   </span>
                 </div>
@@ -115,6 +116,19 @@ export default function Portfolio() {
             ))}
           </AnimatePresence>
         </motion.div>
+
+        {hasMore && (
+          <div className="mt-10 text-center">
+            <button
+              type="button"
+              onClick={() => setVisibleCount(filtered.length)}
+              className="inline-flex items-center gap-2 rounded-btn border border-text-primary/25 px-7 py-3.5 text-sm font-medium text-text-primary transition-colors hover:border-text-primary/60"
+            >
+              <Plus size={15} strokeWidth={1.6} />
+              Показати більше
+            </button>
+          </div>
+        )}
       </Container>
 
       <AnimatePresence>

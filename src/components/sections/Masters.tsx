@@ -2,13 +2,18 @@
 
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
+import { useState } from "react";
 import Container from "@/components/ui/Container";
+import MasterModal from "@/components/ui/MasterModal";
 import Reveal from "@/components/ui/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
 import settings from "@/data/settings.json";
 import team from "@/data/team.json";
 
 export default function Masters() {
+  const [selectedId, setSelectedId] = useState<string | null>(null);
+  const selected = team.find((m) => m.id === selectedId) ?? null;
+
   return (
     <section id="masters" className="relative bg-bg-secondary py-28 md:py-36">
       <Container>
@@ -32,8 +37,12 @@ export default function Masters() {
         <div className="mt-16 grid grid-cols-2 gap-8 sm:grid-cols-4">
           {team.map((member, i) => (
             <Reveal key={member.id} delay={i * 0.08}>
-              <div className="flex flex-col items-center text-center">
-                <div className="group relative aspect-square w-full max-w-[180px] overflow-hidden rounded-full">
+              <button
+                type="button"
+                onClick={() => setSelectedId(member.id)}
+                className="group flex w-full flex-col items-center text-center"
+              >
+                <div className="relative aspect-square w-full max-w-[180px] overflow-hidden rounded-full">
                   <Image
                     src={member.photo}
                     alt={member.name}
@@ -46,7 +55,10 @@ export default function Masters() {
                   {member.name}
                 </h3>
                 <p className="mt-1 text-sm text-text-secondary">{member.role}</p>
-              </div>
+                <span className="mt-3 text-xs font-medium uppercase tracking-[0.1em] text-text-primary underline decoration-card-border underline-offset-4 transition-colors group-hover:text-accent group-hover:decoration-accent">
+                  Про майстра
+                </span>
+              </button>
             </Reveal>
           ))}
         </div>
@@ -61,6 +73,8 @@ export default function Masters() {
           <ArrowRight size={15} strokeWidth={1.6} />
         </a>
       </Container>
+
+      <MasterModal member={selected} onClose={() => setSelectedId(null)} />
     </section>
   );
 }

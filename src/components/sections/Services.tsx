@@ -14,6 +14,7 @@ import { useBooking } from "@/components/providers/BookingProvider";
 import Container from "@/components/ui/Container";
 import Reveal from "@/components/ui/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
+import prices from "@/data/prices.json";
 import services from "@/data/services.json";
 
 const ICONS: Record<string, LucideIcon> = {
@@ -23,6 +24,16 @@ const ICONS: Record<string, LucideIcon> = {
   Footprints,
   Wand2,
 };
+
+function fromPrice(serviceId: string) {
+  const category = prices.find((p) => p.id === serviceId);
+  if (!category) return null;
+  const values = category.items
+    .map((item) => parseInt(item.price.replace(/\D/g, ""), 10))
+    .filter((n) => !Number.isNaN(n));
+  if (!values.length) return null;
+  return Math.min(...values);
+}
 
 export default function Services() {
   const { open: openBooking } = useBooking();
@@ -41,6 +52,7 @@ export default function Services() {
         <div className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-5">
           {services.map((service, i) => {
             const Icon = ICONS[service.icon] ?? Sparkles;
+            const price = fromPrice(service.id);
             return (
               <Reveal key={service.id} delay={(i % 5) * 0.08}>
                 <button
@@ -71,14 +83,21 @@ export default function Services() {
                         <li key={item}>{item}</li>
                       ))}
                     </ul>
-                    <span className="mt-5 inline-flex items-center gap-1.5 border-t border-card-border pt-4 text-xs font-medium uppercase tracking-[0.1em] text-text-primary transition-colors group-hover:text-accent">
-                      Детальніше
-                      <ArrowRight
-                        size={13}
-                        strokeWidth={1.6}
-                        className="transition-transform duration-300 group-hover:translate-x-1"
-                      />
-                    </span>
+                    <div className="mt-5 flex items-center justify-between border-t border-card-border pt-4">
+                      {price !== null && (
+                        <span className="text-sm font-medium text-text-primary">
+                          від {price} ₴
+                        </span>
+                      )}
+                      <span className="inline-flex items-center gap-1.5 text-xs font-medium uppercase tracking-[0.1em] text-text-primary transition-colors group-hover:text-accent">
+                        Детальніше
+                        <ArrowRight
+                          size={13}
+                          strokeWidth={1.6}
+                          className="transition-transform duration-300 group-hover:translate-x-1"
+                        />
+                      </span>
+                    </div>
                   </div>
                 </button>
               </Reveal>
