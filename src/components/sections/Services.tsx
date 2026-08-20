@@ -25,8 +25,12 @@ const ICONS: Record<string, LucideIcon> = {
   Wand2,
 };
 
+function findCategory(serviceId: string) {
+  return prices.find((p) => p.id === serviceId) ?? null;
+}
+
 function fromPrice(serviceId: string) {
-  const category = prices.find((p) => p.id === serviceId);
+  const category = findCategory(serviceId);
   if (!category) return null;
   const values = category.items
     .map((item) => parseInt(item.price.replace(/\D/g, ""), 10))
@@ -52,6 +56,7 @@ export default function Services() {
         <div className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-5">
           {services.map((service, i) => {
             const Icon = ICONS[service.icon] ?? Sparkles;
+            const category = findCategory(service.id);
             const price = fromPrice(service.id);
             return (
               <Reveal key={service.id} delay={(i % 5) * 0.08}>
@@ -72,6 +77,25 @@ export default function Services() {
                     <div className="absolute left-4 top-4 flex h-11 w-11 items-center justify-center rounded-full glass-strong">
                       <Icon size={18} strokeWidth={1.4} className="text-text-primary" />
                     </div>
+
+                    {category && (
+                      <div className="absolute inset-0 flex flex-col justify-center gap-2 bg-text-primary/90 p-5 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                        <p className="mb-1 text-[0.65rem] font-medium uppercase tracking-[0.2em] text-white/55">
+                          Прайс
+                        </p>
+                        {category.items.map((item) => (
+                          <div
+                            key={item.name}
+                            className="flex items-baseline justify-between gap-3 text-[0.8rem] leading-snug"
+                          >
+                            <span className="text-white/80">{item.name}</span>
+                            <span className="whitespace-nowrap font-medium text-white">
+                              {item.price}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                    )}
                   </div>
 
                   <div className="flex flex-1 flex-col p-6">

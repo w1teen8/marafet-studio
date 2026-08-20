@@ -1,7 +1,7 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { ChevronLeft, ChevronRight, Expand, Plus, X } from "lucide-react";
+import { ChevronLeft, ChevronRight, Expand, Minus, Plus, X } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
 import Container from "@/components/ui/Container";
@@ -86,7 +86,7 @@ export default function Portfolio() {
           ))}
         </div>
 
-        <motion.div layout className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3">
+        <motion.div layout className="mx-auto mt-10 grid max-w-3xl grid-cols-2 gap-3 sm:grid-cols-3">
           <AnimatePresence mode="popLayout">
             {visible.map((item, i) => (
               <motion.button
@@ -97,16 +97,16 @@ export default function Portfolio() {
                 exit={{ opacity: 0, scale: 0.96 }}
                 transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                 onClick={() => setLightboxIndex(i)}
-                className="group relative block aspect-square w-full overflow-hidden rounded-28"
+                className="group relative block aspect-square w-full overflow-hidden rounded-2xl"
               >
                 <Image
                   src={item.image}
                   alt={item.title}
                   fill
-                  sizes="(max-width: 640px) 50vw, 33vw"
+                  sizes="(max-width: 640px) 40vw, 220px"
                   className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                 />
-                <div className="pointer-events-none absolute inset-0 flex items-end bg-gradient-to-t from-text-primary/60 via-transparent to-transparent p-4 opacity-0 transition-opacity duration-400 group-hover:opacity-100">
+                <div className="pointer-events-none absolute inset-0 flex items-end bg-gradient-to-t from-text-primary/60 via-transparent to-transparent p-3 opacity-0 transition-opacity duration-400 group-hover:opacity-100">
                   <span className="flex items-center gap-1.5 text-xs font-medium text-white">
                     <Expand size={12} strokeWidth={1.5} />
                     {item.title}
@@ -117,16 +117,29 @@ export default function Portfolio() {
           </AnimatePresence>
         </motion.div>
 
-        {hasMore && (
+        {(hasMore || visibleCount > INITIAL_COUNT) && (
           <div className="mt-10 text-center">
-            <button
-              type="button"
-              onClick={() => setVisibleCount(filtered.length)}
-              className="inline-flex items-center gap-2 rounded-btn border border-text-primary/25 px-7 py-3.5 text-sm font-medium text-text-primary transition-colors hover:border-text-primary/60"
-            >
-              <Plus size={15} strokeWidth={1.6} />
-              Показати більше
-            </button>
+            {hasMore ? (
+              <button
+                type="button"
+                onClick={() => setVisibleCount(filtered.length)}
+                className="inline-flex items-center gap-2 rounded-btn border border-text-primary/25 px-7 py-3.5 text-sm font-medium text-text-primary transition-colors hover:border-text-primary/60"
+              >
+                <Plus size={15} strokeWidth={1.6} />
+                Показати більше
+              </button>
+            ) : (
+              <button
+                type="button"
+                onClick={() =>
+                  setVisibleCount(INITIAL_COUNT)
+                }
+                className="inline-flex items-center gap-2 rounded-btn border border-text-primary/25 px-7 py-3.5 text-sm font-medium text-text-primary transition-colors hover:border-text-primary/60"
+              >
+                <Minus size={15} strokeWidth={1.6} />
+                Згорнути
+              </button>
+            )}
           </div>
         )}
       </Container>
