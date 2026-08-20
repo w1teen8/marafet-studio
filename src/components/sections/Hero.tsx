@@ -92,7 +92,7 @@ export default function Hero() {
             <div className="absolute -inset-6 -z-10 rounded-[3rem] bg-accent/15 blur-2xl" />
             <div className="relative aspect-[4/5] w-full overflow-hidden rounded-28">
               <Image
-                src="https://images.pexels.com/photos/10176348/pexels-photo-10176348.jpeg?auto=compress&cs=tinysrgb&w=1400"
+                src="https://images.pexels.com/photos/17849471/pexels-photo-17849471.jpeg?auto=compress&cs=tinysrgb&w=1400"
                 alt="MARAFET STUDIO — beauty-студія у Боярці"
                 fill
                 priority
