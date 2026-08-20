@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Award, Crown, ShieldCheck, Users } from "lucide-react";
+import { ArrowRight, CalendarCheck, Gem, Leaf, Sparkles, User } from "lucide-react";
 import Image from "next/image";
 import { useBooking } from "@/components/providers/BookingProvider";
 import Button from "@/components/ui/Button";
@@ -12,10 +12,10 @@ const HEADLINE = ["Краса,", "яка починається", "з детал
 const EASE = [0.16, 1, 0.3, 1] as const;
 
 const ADVANTAGES = [
-  { icon: Crown, title: "Преміальні матеріали" },
-  { icon: Award, title: "5 років досвіду" },
-  { icon: Users, title: "1000+ клієнтів" },
-  { icon: ShieldCheck, title: "Гарантія якості" },
+  { icon: User, title: "Індивідуальний підхід" },
+  { icon: Leaf, title: "Якісні матеріали преміум-класу" },
+  { icon: Gem, title: "Досвідчені майстри" },
+  { icon: CalendarCheck, title: "Зручний запис онлайн" },
 ];
 
 export default function Hero() {
@@ -92,7 +92,7 @@ export default function Hero() {
             <div className="absolute -inset-6 -z-10 rounded-[3rem] bg-accent/15 blur-2xl" />
             <div className="relative aspect-[4/5] w-full overflow-hidden rounded-28">
               <Image
-                src="https://images.pexels.com/photos/17849471/pexels-photo-17849471.jpeg?auto=compress&cs=tinysrgb&w=1400"
+                src="/images/hero-portrait.jpg"
                 alt="MARAFET STUDIO — beauty-студія у Боярці"
                 fill
                 priority
@@ -100,9 +100,43 @@ export default function Hero() {
                 className="object-cover"
               />
             </div>
-            <div className="absolute -left-6 -top-6 hidden h-24 w-24 rounded-full border border-card-border bg-bg-secondary/80 md:block" />
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{ duration: 24, repeat: Infinity, ease: "linear" }}
+              className="absolute -left-8 -top-8 hidden h-28 w-28 items-center justify-center rounded-full border border-card-border bg-bg shadow-[0_10px_30px_rgba(23,23,23,0.1)] md:flex"
+            >
+              <svg viewBox="0 0 100 100" className="h-full w-full p-2.5">
+                <path
+                  id="hero-badge-circle"
+                  fill="none"
+                  d="M 50,50 m -37,0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0"
+                />
+                <text className="fill-text-secondary text-[7.5px] uppercase tracking-[0.15em]">
+                  <textPath href="#hero-badge-circle">
+                    Marafet Studio • Краса в деталях •
+                  </textPath>
+                </text>
+              </svg>
+              <Sparkles size={18} strokeWidth={1.3} className="absolute text-accent" />
+            </motion.div>
           </motion.div>
         </div>
+
+        <svg
+          viewBox="0 0 200 260"
+          className="pointer-events-none absolute -left-6 bottom-0 hidden h-64 w-48 text-accent/25 lg:block"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.2"
+        >
+          <path d="M20 250 C 30 190, 15 140, 45 90 C 65 55, 55 25, 40 5" strokeLinecap="round" />
+          <path d="M40 5 C 55 15, 65 12, 75 -2" strokeLinecap="round" />
+          <path d="M45 90 C 60 85, 72 92, 80 75" strokeLinecap="round" />
+          <path d="M45 90 C 30 100, 18 95, 8 108" strokeLinecap="round" />
+          <path d="M32 150 C 48 145, 58 155, 68 140" strokeLinecap="round" />
+          <path d="M32 150 C 18 158, 8 152, -2 165" strokeLinecap="round" />
+          <path d="M25 205 C 40 200, 50 210, 60 196" strokeLinecap="round" />
+        </svg>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
