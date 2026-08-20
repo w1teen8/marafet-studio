@@ -123,22 +123,6 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        <svg
-          viewBox="0 0 200 260"
-          className="pointer-events-none absolute -left-6 bottom-0 hidden h-64 w-48 text-accent/25 lg:block"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.2"
-        >
-          <path d="M20 250 C 30 190, 15 140, 45 90 C 65 55, 55 25, 40 5" strokeLinecap="round" />
-          <path d="M40 5 C 55 15, 65 12, 75 -2" strokeLinecap="round" />
-          <path d="M45 90 C 60 85, 72 92, 80 75" strokeLinecap="round" />
-          <path d="M45 90 C 30 100, 18 95, 8 108" strokeLinecap="round" />
-          <path d="M32 150 C 48 145, 58 155, 68 140" strokeLinecap="round" />
-          <path d="M32 150 C 18 158, 8 152, -2 165" strokeLinecap="round" />
-          <path d="M25 205 C 40 200, 50 210, 60 196" strokeLinecap="round" />
-        </svg>
-
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
