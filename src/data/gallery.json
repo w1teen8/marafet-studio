@@ -1,0 +1,86 @@
+[
+  {
+    "id": "g1",
+    "category": "brows",
+    "title": "Корекція брів",
+    "ratio": "square",
+    "image": "https://images.pexels.com/photos/6135623/pexels-photo-6135623.jpeg?auto=compress&cs=tinysrgb&w=900"
+  },
+  {
+    "id": "g2",
+    "category": "brows",
+    "title": "Оформлення брів",
+    "ratio": "portrait",
+    "image": "https://images.pexels.com/photos/9931620/pexels-photo-9931620.jpeg?auto=compress&cs=tinysrgb&w=900"
+  },
+  {
+    "id": "g3",
+    "category": "lashes",
+    "title": "Нарощування вій",
+    "ratio": "tall",
+    "image": "https://images.pexels.com/photos/7298696/pexels-photo-7298696.jpeg?auto=compress&cs=tinysrgb&w=900"
+  },
+  {
+    "id": "g4",
+    "category": "lashes",
+    "title": "Ламінування вій",
+    "ratio": "square",
+    "image": "https://images.pexels.com/photos/36930354/pexels-photo-36930354.jpeg?auto=compress&cs=tinysrgb&w=900"
+  },
+  {
+    "id": "g5",
+    "category": "manicure",
+    "title": "Витончений манікюр",
+    "ratio": "portrait",
+    "image": "https://images.unsplash.com/photo-1610992015732-2449b76344bc?w=900&q=80&auto=format&fit=crop"
+  },
+  {
+    "id": "g6",
+    "category": "manicure",
+    "title": "Авторський nail-art",
+    "ratio": "square",
+    "image": "https://images.unsplash.com/photo-1519014816548-bf5fe059798b?w=900&q=80&auto=format&fit=crop"
+  },
+  {
+    "id": "g7",
+    "category": "manicure",
+    "title": "Ніжний нюд",
+    "ratio": "tall",
+    "image": "https://images.unsplash.com/photo-1607779097040-26e80aa78e66?w=900&q=80&auto=format&fit=crop"
+  },
+  {
+    "id": "g8",
+    "category": "pedicure",
+    "title": "SPA-педикюр",
+    "ratio": "square",
+    "image": "https://images.pexels.com/photos/4963822/pexels-photo-4963822.jpeg?auto=compress&cs=tinysrgb&w=900"
+  },
+  {
+    "id": "g9",
+    "category": "pedicure",
+    "title": "Апаратний педикюр",
+    "ratio": "portrait",
+    "image": "https://images.pexels.com/photos/6663599/pexels-photo-6663599.jpeg?auto=compress&cs=tinysrgb&w=900"
+  },
+  {
+    "id": "g10",
+    "category": "makeup",
+    "title": "Преміальна косметика",
+    "ratio": "tall",
+    "image": "https://images.unsplash.com/photo-1571875257727-256c39da42af?w=900&q=80&auto=format&fit=crop"
+  },
+  {
+    "id": "g11",
+    "category": "makeup",
+    "title": "Інструменти візажиста",
+    "ratio": "square",
+    "image": "https://images.unsplash.com/photo-1526045478516-99145907023c?w=900&q=80&auto=format&fit=crop"
+  },
+  {
+    "id": "g12",
+    "category": "makeup",
+    "title": "Вечірній макіяж",
+    "ratio": "portrait",
+    "image": "https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?w=900&q=80&auto=format&fit=crop"
+  }
+]

@@ -4,22 +4,24 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import InstagramGlyph from "@/components/icons/InstagramGlyph";
+import { useBooking } from "@/components/providers/BookingProvider";
 import Button from "@/components/ui/Button";
 import Container from "@/components/ui/Container";
 import settings from "@/data/settings.json";
 
 const LINKS = [
-  { href: "#home", label: "Головна" },
-  { href: "#services", label: "Послуги" },
   { href: "#about", label: "Про студію" },
+  { href: "#services", label: "Послуги" },
+  { href: "#masters", label: "Майстри" },
+  { href: "#price", label: "Прайс" },
   { href: "#reviews", label: "Відгуки" },
-  { href: "#faq", label: "FAQ" },
   { href: "#contacts", label: "Контакти" },
 ];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const { open: openBooking } = useBooking();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -67,8 +69,11 @@ export default function Navbar() {
             ))}
           </nav>
 
-          <div className="hidden lg:block">
-            <Button href="#booking" size="md">
+          <div className="hidden items-center gap-6 lg:flex">
+            <span className="text-xs tracking-[0.1em] text-text-secondary">
+              <span className="text-text-primary">UA</span> | RU
+            </span>
+            <Button onClick={openBooking} size="md">
               Записатися
             </Button>
           </div>
@@ -131,11 +136,15 @@ export default function Navbar() {
                 <InstagramGlyph size={16} strokeWidth={1.5} />
                 {settings.instagram}
               </a>
-              <div onClick={() => setOpen(false)}>
-                <Button href="#booking" size="md">
-                  Записатися
-                </Button>
-              </div>
+              <Button
+                onClick={() => {
+                  setOpen(false);
+                  openBooking();
+                }}
+                size="md"
+              >
+                Записатися
+              </Button>
             </Container>
           </motion.div>
         )}

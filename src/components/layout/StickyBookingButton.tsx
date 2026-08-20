@@ -3,9 +3,11 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { CalendarCheck } from "lucide-react";
 import { useEffect, useState } from "react";
+import { useBooking } from "@/components/providers/BookingProvider";
 
 export default function StickyBookingButton() {
   const [visible, setVisible] = useState(false);
+  const { open } = useBooking();
 
   useEffect(() => {
     const onScroll = () => setVisible(window.scrollY > window.innerHeight * 0.7);
@@ -17,8 +19,9 @@ export default function StickyBookingButton() {
   return (
     <AnimatePresence>
       {visible && (
-        <motion.a
-          href="#booking"
+        <motion.button
+          type="button"
+          onClick={open}
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 30 }}
@@ -27,7 +30,7 @@ export default function StickyBookingButton() {
         >
           <CalendarCheck size={17} strokeWidth={1.5} />
           Записатися онлайн
-        </motion.a>
+        </motion.button>
       )}
     </AnimatePresence>
   );

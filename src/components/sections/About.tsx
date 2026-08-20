@@ -1,120 +1,69 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Award, Gem, HeartHandshake } from "lucide-react";
+import { Gem, Heart, ShieldCheck, Sparkles } from "lucide-react";
 import Image from "next/image";
+import Button from "@/components/ui/Button";
 import Container from "@/components/ui/Container";
 import Reveal from "@/components/ui/Reveal";
 
 const POINTS = [
-  {
-    icon: Award,
-    title: "Дипломовані майстри",
-    text: "Кожен спеціаліст студії проходить регулярне навчання та підвищення кваліфікації.",
-  },
-  {
-    icon: Gem,
-    title: "Преміальні матеріали",
-    text: "Працюємо тільки з сертифікованими професійними брендами.",
-  },
-  {
-    icon: HeartHandshake,
-    title: "Індивідуальний підхід",
-    text: "Кожна процедура підбирається під ваші побажання та особливості.",
-  },
+  { icon: Heart, title: "Індивідуальний підхід до кожного" },
+  { icon: Sparkles, title: "Сучасні техніки та тренди" },
+  { icon: ShieldCheck, title: "Стерильність та безпека" },
+  { icon: Gem, title: "Затишна атмосфера та турбота" },
 ];
 
 export default function About() {
   return (
-    <section id="about" className="relative overflow-hidden bg-bg py-28 md:py-36">
+    <section id="about" className="relative overflow-hidden bg-text-primary py-28 md:py-36">
       <Container>
-        <div className="grid gap-16 lg:grid-cols-2 lg:gap-20">
-          <div className="relative">
-            <Reveal className="relative aspect-[4/5] w-full max-w-lg overflow-hidden rounded-28">
-              <Image
-                src="https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?w=1000&q=80&auto=format&fit=crop"
-                alt="Інтер'єр студії MARAFET"
-                fill
-                sizes="(max-width: 1024px) 90vw, 40vw"
-                className="object-cover"
-              />
-            </Reveal>
-
-            <Reveal
-              delay={0.25}
-              className="absolute -bottom-10 -right-4 w-[52%] max-w-[260px] overflow-hidden rounded-28 border-4 border-bg shadow-[0_20px_50px_rgba(45,42,41,0.18)] sm:-right-10"
-            >
-              <div className="relative aspect-square w-full">
-                <Image
-                  src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=700&q=80&auto=format&fit=crop"
-                  alt="Доглядова процедура MARAFET STUDIO"
-                  fill
-                  sizes="(max-width: 1024px) 45vw, 20vw"
-                  className="object-cover"
-                />
-              </div>
-            </Reveal>
-
-            <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ duration: 22, repeat: Infinity, ease: "linear" }}
-              className="absolute -left-6 -top-6 hidden h-28 w-28 items-center justify-center rounded-full glass md:flex"
-            >
-              <svg viewBox="0 0 100 100" className="h-full w-full p-3">
-                <path
-                  id="about-circle"
-                  fill="none"
-                  d="M 50,50 m -37,0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0"
-                />
-                <text className="fill-text-secondary text-[8px] uppercase tracking-[0.15em]">
-                  <textPath href="#about-circle">
-                    Marafet Studio • Краса та турбота •
-                  </textPath>
-                </text>
-              </svg>
-            </motion.div>
-          </div>
+        <div className="grid gap-14 lg:grid-cols-2 lg:gap-20">
+          <Reveal className="relative aspect-[4/3] w-full overflow-hidden rounded-28 lg:aspect-auto">
+            <Image
+              src="https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?w=1200&q=80&auto=format&fit=crop"
+              alt="Інтер'єр студії MARAFET STUDIO"
+              fill
+              sizes="(max-width: 1024px) 90vw, 45vw"
+              className="object-cover"
+            />
+          </Reveal>
 
           <div className="flex flex-col justify-center">
-            <span className="mb-5 inline-flex items-center gap-3 text-xs font-medium uppercase tracking-[0.35em] text-text-secondary">
-              <span className="h-px w-8 bg-gold" />
+            <span className="mb-5 inline-flex items-center gap-3 text-xs font-medium uppercase tracking-[0.35em] text-white/50">
+              <span className="h-px w-8 bg-accent" />
               Про студію
             </span>
 
             <Reveal delay={0.05}>
-              <h2 className="font-display text-4xl font-medium leading-[1.1] tracking-tight text-text-primary sm:text-5xl">
-                Простір, де краса
-                <br />
-                поєднується з комфортом
+              <h2 className="font-display text-4xl font-medium leading-[1.1] tracking-tight text-white sm:text-5xl">
+                Marafet Studio — це про якість і стиль
               </h2>
             </Reveal>
 
             <Reveal delay={0.12}>
-              <p className="mt-7 text-balance text-base leading-relaxed text-text-secondary md:text-lg">
-                MARAFET STUDIO — це місце, де краса поєднується з комфортом. Ми
-                створили простір, у якому кожен клієнт почувається спокійно,
-                отримує індивідуальний підхід та сервіс преміального рівня.
+              <p className="mt-7 max-w-md text-balance text-base leading-relaxed text-white/65 md:text-lg">
+                Ми створили простір, де кожна деталь продумана для вашого
+                комфорту та краси. Наші майстри постійно підвищують
+                кваліфікацію та слідкують за трендами, щоб ви завжди
+                виглядали бездоганно.
               </p>
             </Reveal>
 
             <Reveal delay={0.18}>
-              <p className="mt-4 text-balance text-base leading-relaxed text-text-secondary md:text-lg">
-                Приємна атмосфера, дипломовані спеціалісти та безпечна
-                процедура — наш пріоритет у кожній деталі, від першого дзвінка
-                до фінального результату.
-              </p>
+              <Button href="#services" variant="accent" className="mt-8">
+                Дізнатися більше
+              </Button>
             </Reveal>
 
-            <div className="mt-12 grid gap-8 sm:grid-cols-3">
+            <div className="mt-14 grid gap-x-8 gap-y-7 sm:grid-cols-2">
               {POINTS.map((point, i) => (
-                <Reveal key={point.title} delay={0.1 * i}>
-                  <point.icon size={22} strokeWidth={1.4} className="text-gold" />
-                  <p className="mt-4 text-sm font-medium text-text-primary">
-                    {point.title}
-                  </p>
-                  <p className="mt-1.5 text-sm leading-relaxed text-text-secondary">
-                    {point.text}
-                  </p>
+                <Reveal key={point.title} delay={0.06 * i}>
+                  <div className="flex items-start gap-3">
+                    <point.icon size={20} strokeWidth={1.4} className="mt-0.5 shrink-0 text-accent" />
+                    <p className="text-sm leading-relaxed text-white/80">
+                      {point.title}
+                    </p>
+                  </div>
                 </Reveal>
               ))}
             </div>

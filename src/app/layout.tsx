@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from "next";
 import { Manrope, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import SmoothScrollProvider from "@/components/providers/SmoothScrollProvider";
+import { BookingProvider } from "@/components/providers/BookingProvider";
+import BookingModal from "@/components/ui/BookingModal";
 import Footer from "@/components/layout/Footer";
 import Loader from "@/components/layout/Loader";
 import Navbar from "@/components/layout/Navbar";
@@ -29,19 +31,19 @@ const SITE_URL = "https://marafet-studio.com.ua";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "MARAFET STUDIO — beauty-студія у Боярці",
+    default: "Marafet Studio — Салон краси в Боярці",
     template: "%s — MARAFET STUDIO",
   },
   description:
-    "MARAFET STUDIO — сучасна beauty-студія у Боярці. Манікюр, педикюр, стрижки, фарбування волосся та професійний догляд в одному просторі. Дипломовані майстри, преміальний сервіс, онлайн-запис.",
+    "Marafet Studio — салон краси в Боярці. Манікюр, педикюр, брови, вії та макіяж. Запишіться на процедуру.",
   keywords: [
+    "брови Боярка",
+    "вії Боярка",
     "манікюр Боярка",
     "педикюр Боярка",
-    "фарбування Боярка",
-    "стрижка Боярка",
-    "beauty studio Боярка",
+    "макіяж Боярка",
     "салон краси Боярка",
-    "nail studio Боярка",
+    "beauty studio Боярка",
     "MARAFET STUDIO",
   ],
   authors: [{ name: "MARAFET STUDIO" }],
@@ -50,9 +52,9 @@ export const metadata: Metadata = {
     locale: "uk_UA",
     url: SITE_URL,
     siteName: "MARAFET STUDIO",
-    title: "MARAFET STUDIO — beauty-студія у Боярці",
+    title: "Marafet Studio — Салон краси в Боярці",
     description:
-      "Краса починається з турботи про себе. Манікюр, педикюр, стрижки, фарбування та професійний догляд у Боярці.",
+      "Marafet Studio — салон краси в Боярці. Манікюр, педикюр, брови, вії та макіяж. Запишіться на процедуру.",
     images: [
       {
         url: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=1200&q=80&auto=format&fit=crop",
@@ -64,9 +66,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "MARAFET STUDIO — beauty-студія у Боярці",
+    title: "Marafet Studio — Салон краси в Боярці",
     description:
-      "Краса починається з турботи про себе. Манікюр, педикюр, стрижки, фарбування та професійний догляд у Боярці.",
+      "Marafet Studio — салон краси в Боярці. Манікюр, педикюр, брови, вії та макіяж. Запишіться на процедуру.",
     images: [
       "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=1200&q=80&auto=format&fit=crop",
     ],
@@ -81,7 +83,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#F9F7F5",
+  themeColor: "#F4EFE8",
   width: "device-width",
   initialScale: 1,
 };
@@ -93,17 +95,24 @@ const jsonLd = {
   image:
     "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=1200&q=80&auto=format&fit=crop",
   description:
-    "Beauty-студія у Боярці: манікюр, педикюр, стрижки, фарбування волосся та професійний догляд.",
+    "Салон краси в Боярці: манікюр, педикюр, брови, вії та макіяж.",
   address: {
     "@type": "PostalAddress",
+    streetAddress: "вул. Білогородська, 27",
     addressLocality: settings.city,
+    postalCode: "08151",
     addressCountry: "UA",
   },
   telephone: settings.phone,
   url: SITE_URL,
-  sameAs: [settings.instagramUrl],
+  sameAs: [settings.instagramUrl, settings.facebookUrl],
   priceRange: "₴₴",
-  openingHours: "Mo-Su 09:00-20:00",
+  openingHours: "Mo-Su 09:00-19:00",
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: settings.rating,
+    reviewCount: settings.reviewsCount,
+  },
 };
 
 export default function RootLayout({
@@ -124,13 +133,16 @@ export default function RootLayout({
       </head>
       <body className="min-h-full bg-bg text-text-primary">
         <Loader />
-        <SmoothScrollProvider>
-          <ScrollProgressBar />
-          <Navbar />
-          <main>{children}</main>
-          <Footer />
-          <StickyBookingButton />
-        </SmoothScrollProvider>
+        <BookingProvider>
+          <SmoothScrollProvider>
+            <ScrollProgressBar />
+            <Navbar />
+            <main>{children}</main>
+            <Footer />
+            <StickyBookingButton />
+          </SmoothScrollProvider>
+          <BookingModal />
+        </BookingProvider>
       </body>
     </html>
   );

@@ -1,47 +1,38 @@
 [
   {
-    "id": "tasia",
-    "name": "Тася",
-    "role": "Майстер манікюру",
-    "experience": "5 років досвіду",
-    "instagram": "@_marafet_studio",
-    "photo": "https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=900&q=80&auto=format&fit=crop",
-    "bio": "Спеціалізується на апаратному манікюрі та ідеально рівному покритті."
-  },
-  {
     "id": "anastasia",
     "name": "Анастасія",
-    "role": "Майстер nail-дизайну",
-    "experience": "4 роки досвіду",
+    "role": "Бровіст / Ламінування вій",
+    "experience": "5 років досвіду",
     "instagram": "@_marafet_studio",
-    "photo": "https://images.unsplash.com/photo-1592621385612-4d7129426394?w=900&q=80&auto=format&fit=crop",
-    "bio": "Створює авторський дизайн нігтів будь-якої складності — від мінімалізму до nail-art."
-  },
-  {
-    "id": "iryna",
-    "name": "Ірина",
-    "role": "Перукар-стиліст",
-    "experience": "7 років досвіду",
-    "instagram": "@_marafet_studio",
-    "photo": "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=900&q=80&auto=format&fit=crop",
-    "bio": "Майстер стрижок та укладок, підбирає форму зачіски індивідуально під обличчя."
+    "photo": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=700&q=80&auto=format&fit=crop",
+    "bio": "Створює ідеальну форму брів під тип обличчя, спеціалізується на ламінуванні брів та вій."
   },
   {
     "id": "maryna",
     "name": "Марина",
-    "role": "Майстер педикюру та SPA",
+    "role": "Майстер манікюру",
     "experience": "6 років досвіду",
     "instagram": "@_marafet_studio",
-    "photo": "https://images.unsplash.com/photo-1583001809873-a128495da465?w=900&q=80&auto=format&fit=crop",
-    "bio": "Проводить апаратний педикюр та доглядові spa-ритуали для рук і ніг."
+    "photo": "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=700&q=80&auto=format&fit=crop",
+    "bio": "Апаратний манікюр та стійке покриття, яке тримається без сколів по кілька тижнів."
   },
   {
-    "id": "sofia",
-    "name": "Софія",
-    "role": "Колорист",
+    "id": "olha",
+    "name": "Ольга",
+    "role": "Майстер педикюру",
+    "experience": "7 років досвіду",
+    "instagram": "@_marafet_studio",
+    "photo": "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=700&q=80&auto=format&fit=crop",
+    "bio": "Апаратний педикюр та доглядові SPA-ритуали з увагою до кожної деталі."
+  },
+  {
+    "id": "viktoria",
+    "name": "Вікторія",
+    "role": "Візажист",
     "experience": "5 років досвіду",
     "instagram": "@_marafet_studio",
-    "photo": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=900&q=80&auto=format&fit=crop",
-    "bio": "Спеціалізується на складному колоруванні, балаяжі та відновленні волосся."
+    "photo": "https://images.unsplash.com/photo-1554151228-14d9def656e4?w=700&q=80&auto=format&fit=crop",
+    "bio": "Створює природний та вечірній макіяж, підбирає образ під ваші риси обличчя."
   }
 ]

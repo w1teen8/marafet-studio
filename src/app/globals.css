@@ -1,15 +1,15 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #f9f7f5;
-  --bg-secondary: #efe8e5;
-  --card: rgba(255, 255, 255, 0.75);
-  --card-border: rgba(0, 0, 0, 0.08);
-  --text-primary: #2d2a29;
-  --text-secondary: #7b706b;
-  --accent: #d6b6c8;
-  --accent-secondary: #c9a4b5;
-  --gold: #c7a26b;
+  --bg: #f4efe8;
+  --bg-secondary: #fbf8f4;
+  --card: #ffffff;
+  --card-border: #ded5ca;
+  --text-primary: #171717;
+  --text-secondary: #766f68;
+  --accent: #b69a78;
+  --accent-secondary: #a3855f;
+  --gold: #b69a78;
 }
 
 @theme inline {
@@ -88,15 +88,22 @@ h4,
   letter-spacing: -0.01em;
 }
 
-/* ---------- Glass surfaces ---------- */
+/* ---------- Solid premium surfaces (no glassmorphism) ---------- */
 @layer components {
   .glass {
-    @apply border border-card-border bg-card backdrop-blur-xl backdrop-saturate-150;
+    @apply border border-card-border bg-card shadow-[0_2px_10px_rgba(23,23,23,0.04)];
   }
 
   .glass-strong {
-    @apply border border-card-border backdrop-blur-2xl backdrop-saturate-150;
-    background: rgba(255, 255, 255, 0.55);
+    @apply border border-card-border bg-card shadow-[0_10px_30px_rgba(23,23,23,0.08)];
+  }
+}
+
+/* Used only for dark-on-image overlays (lightbox controls, hero chips) where a
+   solid card would be too heavy — kept minimal and only on dark photography. */
+@layer components {
+  .glass-dark {
+    @apply border border-white/15 bg-white/10 backdrop-blur-md;
   }
 }
 

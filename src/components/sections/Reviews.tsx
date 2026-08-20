@@ -7,7 +7,10 @@ import { useCallback, useEffect, useState } from "react";
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
 import reviews from "@/data/reviews.json";
+import settings from "@/data/settings.json";
 import { cn } from "@/lib/utils";
+
+const moreReviewsCount = Math.max(settings.reviewsCount - reviews.length, 0);
 
 export default function Reviews() {
   const [emblaRef, emblaApi] = useEmblaCarousel({
@@ -33,11 +36,33 @@ export default function Reviews() {
     <section id="reviews" className="relative overflow-hidden bg-bg-secondary py-28 md:py-36">
       <Container>
         <div className="flex flex-col justify-between gap-8 md:flex-row md:items-end">
-          <SectionHeading
-            kicker="Відгуки"
-            title="Що кажуть наші клієнти"
-            className="max-w-xl"
-          />
+          <div>
+            <SectionHeading
+              kicker="Відгуки"
+              title="Відгуки наших клієнтів"
+              className="max-w-xl"
+            />
+            <div className="mt-6 flex items-center gap-3">
+              <span className="flex items-center gap-1">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <Star
+                    key={i}
+                    size={15}
+                    className={cn(
+                      i < Math.round(settings.rating) ? "fill-accent text-accent" : "text-card-border",
+                    )}
+                    strokeWidth={0}
+                  />
+                ))}
+              </span>
+              <span className="text-sm font-medium text-text-primary">
+                {settings.rating.toFixed(1)} / 5
+              </span>
+              <span className="text-sm text-text-secondary">
+                · {settings.reviewsCount} відгуків
+              </span>
+            </div>
+          </div>
           <div className="flex gap-3">
             <button
               aria-label="Попередній відгук"
@@ -103,6 +128,20 @@ export default function Reviews() {
             />
           ))}
         </div>
+
+        {moreReviewsCount > 0 && (
+          <div className="mt-10 text-center">
+            <a
+              href={settings.facebookUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-sm font-medium text-text-primary transition-colors hover:text-accent"
+            >
+              Ще відгуки ({moreReviewsCount})
+              <ArrowRight size={15} strokeWidth={1.6} />
+            </a>
+          </div>
+        )}
       </Container>
     </section>
   );

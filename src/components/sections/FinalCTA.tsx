@@ -3,32 +3,35 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
+import { useBooking } from "@/components/providers/BookingProvider";
 import Button from "@/components/ui/Button";
 import Container from "@/components/ui/Container";
 
-const WORDS = ["Час", "подарувати", "собі", "ідеальний", "образ."];
+const WORDS = ["Готові", "до", "змін?"];
 
 export default function FinalCTA() {
+  const { open: openBooking } = useBooking();
+
   return (
-    <section className="relative flex min-h-[70vh] items-center overflow-hidden bg-text-primary py-32">
+    <section className="relative flex min-h-[60vh] items-center overflow-hidden bg-text-primary py-28">
       <div className="absolute inset-0">
         <Image
           src="https://images.unsplash.com/photo-1470259078422-826894b933aa?w=1800&q=80&auto=format&fit=crop"
           alt=""
           fill
           sizes="100vw"
-          className="object-cover opacity-30"
+          className="object-cover opacity-25"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-text-primary via-text-primary/80 to-text-primary" />
+        <div className="absolute inset-0 bg-gradient-to-b from-text-primary via-text-primary/85 to-text-primary" />
       </div>
 
       <div className="pointer-events-none absolute inset-0">
         <div className="animate-float-slow absolute left-[10%] top-[15%] h-72 w-72 rounded-full bg-accent/20 blur-[100px]" />
-        <div className="animate-float-slower absolute bottom-[10%] right-[8%] h-80 w-80 rounded-full bg-gold/15 blur-[110px]" />
+        <div className="animate-float-slower absolute bottom-[10%] right-[8%] h-80 w-80 rounded-full bg-accent/15 blur-[110px]" />
       </div>
 
       <Container className="relative z-10 text-center">
-        <h2 className="mx-auto max-w-4xl font-display text-4xl font-medium leading-[1.08] tracking-tight text-white sm:text-6xl md:text-7xl">
+        <h2 className="mx-auto max-w-3xl font-display text-4xl font-medium leading-[1.08] tracking-tight text-white sm:text-6xl md:text-7xl">
           {WORDS.map((word, i) => (
             <motion.span
               key={word}
@@ -48,15 +51,25 @@ export default function FinalCTA() {
           ))}
         </h2>
 
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.35 }}
+          className="mx-auto mt-6 max-w-md text-balance text-base leading-relaxed text-white/70 md:text-lg"
+        >
+          Запишіться на процедуру та подаруйте собі час для себе.
+        </motion.p>
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="mt-12"
+          className="mt-10"
         >
-          <Button href="#booking" size="lg" variant="accent" icon={<ArrowRight size={18} />}>
-            Записатися зараз
+          <Button onClick={openBooking} size="lg" variant="accent" icon={<ArrowRight size={18} />}>
+            Записатися
           </Button>
         </motion.div>
       </Container>

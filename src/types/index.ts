@@ -3,9 +3,7 @@ export interface Service {
   title: string;
   slug: string;
   icon: string;
-  description: string;
-  duration: string;
-  priceFrom: number;
+  items: string[];
   image: string;
 }
 
@@ -36,8 +34,8 @@ export interface GalleryItem {
   id: string;
   category: string;
   image: string;
-  before?: string;
   title: string;
+  ratio?: "portrait" | "square" | "tall";
 }
 
 export interface Review {
@@ -50,12 +48,6 @@ export interface Review {
   date: string;
 }
 
-export interface FaqItem {
-  id: string;
-  question: string;
-  answer: string;
-}
-
 export interface Settings {
   brand: string;
   tagline: string;
@@ -63,13 +55,13 @@ export interface Settings {
   phoneDisplay: string;
   instagram: string;
   instagramUrl: string;
+  facebookUrl: string;
+  facebookDisplay: string;
   city: string;
   address: string;
   mapEmbedUrl: string;
   mapUrl: string;
   workingHours: string;
-  stats: {
-    label: string;
-    value: string;
-  }[];
+  rating: number;
+  reviewsCount: number;
 }

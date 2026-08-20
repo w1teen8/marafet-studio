@@ -1,14 +1,15 @@
 import { MapPin, Phone } from "lucide-react";
+import FacebookGlyph from "@/components/icons/FacebookGlyph";
 import InstagramGlyph from "@/components/icons/InstagramGlyph";
 import Container from "@/components/ui/Container";
 import settings from "@/data/settings.json";
 
 const LINKS = [
-  { href: "#home", label: "Головна" },
-  { href: "#services", label: "Послуги" },
   { href: "#about", label: "Про студію" },
+  { href: "#services", label: "Послуги" },
+  { href: "#masters", label: "Майстри" },
+  { href: "#price", label: "Прайс" },
   { href: "#reviews", label: "Відгуки" },
-  { href: "#faq", label: "FAQ" },
   { href: "#contacts", label: "Контакти" },
 ];
 
@@ -27,15 +28,26 @@ export default function Footer() {
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-text-secondary">
               {settings.tagline}
             </p>
-            <a
-              href={settings.instagramUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-6 inline-flex items-center gap-2 text-sm text-text-primary transition-colors hover:text-gold"
-            >
-              <InstagramGlyph size={16} strokeWidth={1.5} />
-              {settings.instagram}
-            </a>
+            <div className="mt-6 flex items-center gap-3">
+              <a
+                href={settings.instagramUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram MARAFET STUDIO"
+                className="flex h-10 w-10 items-center justify-center rounded-full glass text-text-primary transition-colors hover:text-gold"
+              >
+                <InstagramGlyph size={16} strokeWidth={1.5} />
+              </a>
+              <a
+                href={settings.facebookUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook MARAFET STUDIO"
+                className="flex h-10 w-10 items-center justify-center rounded-full glass text-text-primary transition-colors hover:text-gold"
+              >
+                <FacebookGlyph size={16} strokeWidth={1.5} />
+              </a>
+            </div>
           </div>
 
           <div>
@@ -77,8 +89,8 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-col items-center justify-between gap-4 border-t border-card-border py-8 text-xs text-text-secondary md:flex-row">
-          <p>© {new Date().getFullYear()} MARAFET STUDIO. Усі права захищено.</p>
-          <p>Боярка, Київська область</p>
+          <p>© {new Date().getFullYear()} Marafet Studio. Всі права захищені.</p>
+          <p>Політика конфіденційності</p>
         </div>
       </Container>
     </footer>
