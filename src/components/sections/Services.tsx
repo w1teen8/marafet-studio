@@ -114,7 +114,7 @@ export default function Services() {
                         </span>
                       )}
                       <span className="inline-flex items-center gap-1.5 text-xs font-medium uppercase tracking-[0.1em] text-text-primary transition-colors group-hover:text-accent">
-                        Детальніше
+                        Записатися
                         <ArrowRight
                           size={13}
                           strokeWidth={1.6}

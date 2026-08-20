@@ -91,7 +91,7 @@ export default function Hero() {
             className="relative"
           >
             <div className="absolute -inset-6 -z-10 rounded-[3rem] bg-accent/15 blur-2xl" />
-            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-28">
+            <div className="relative h-[380px] w-full overflow-hidden rounded-28 sm:h-[440px] lg:h-[500px]">
               <Image
                 src={withBasePath("/images/hero-portrait.jpg")}
                 alt="MARAFET STUDIO — beauty-студія у Боярці"
