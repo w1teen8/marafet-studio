@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Cormorant_Garamond, Manrope } from "next/font/google";
+import { Manrope, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import SmoothScrollProvider from "@/components/providers/SmoothScrollProvider";
 import { BookingProvider } from "@/components/providers/BookingProvider";
@@ -11,8 +11,8 @@ import ScrollProgressBar from "@/components/layout/ScrollProgressBar";
 import StickyBookingButton from "@/components/layout/StickyBookingButton";
 import settings from "@/data/settings.json";
 
-const cormorant = Cormorant_Garamond({
-  variable: "--font-cormorant",
+const playfair = Playfair_Display({
+  variable: "--font-playfair",
   subsets: ["latin", "cyrillic"],
   weight: ["500", "600", "700"],
   style: ["normal", "italic"],
@@ -123,7 +123,7 @@ export default function RootLayout({
   return (
     <html
       lang="uk"
-      className={`${cormorant.variable} ${manrope.variable} h-full antialiased`}
+      className={`${playfair.variable} ${manrope.variable} h-full antialiased`}
     >
       <head>
         <script
