@@ -91,7 +91,7 @@ export default function Hero() {
             className="relative"
           >
             <div className="absolute -inset-6 -z-10 rounded-[3rem] bg-accent/15 blur-2xl" />
-            <div className="relative h-[380px] w-full overflow-hidden rounded-28 sm:h-[440px] lg:h-[500px]">
+            <div className="relative h-[494px] w-full overflow-hidden rounded-28 sm:h-[572px] lg:h-[650px]">
               <Image
                 src={withBasePath("/images/hero-portrait.jpg")}
                 alt="MARAFET STUDIO — beauty-студія у Боярці"
@@ -117,8 +117,15 @@ export default function Hero() {
                     Marafet Studio • Краса в деталях •
                   </textPath>
                 </text>
+                <circle cx="50" cy="50" r="24" fill="none" className="stroke-card-border" strokeWidth="1" />
               </svg>
-              <Sparkles size={18} strokeWidth={1.3} className="absolute text-accent" />
+              <motion.div
+                animate={{ rotate: -360 }}
+                transition={{ duration: 24, repeat: Infinity, ease: "linear" }}
+                className="absolute flex h-11 w-11 items-center justify-center rounded-full bg-accent/12"
+              >
+                <Sparkles size={22} strokeWidth={1.2} className="text-accent" />
+              </motion.div>
             </motion.div>
           </motion.div>
         </div>
