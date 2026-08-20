@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useBooking } from "@/components/providers/BookingProvider";
 import Button from "@/components/ui/Button";
 import Container from "@/components/ui/Container";
+import { withBasePath } from "@/lib/utils";
 
 const HEADLINE = ["Краса,", "яка починається", "з деталей."];
 
@@ -92,7 +93,7 @@ export default function Hero() {
             <div className="absolute -inset-6 -z-10 rounded-[3rem] bg-accent/15 blur-2xl" />
             <div className="relative aspect-[4/5] w-full overflow-hidden rounded-28">
               <Image
-                src="/images/hero-portrait.jpg"
+                src={withBasePath("/images/hero-portrait.jpg")}
                 alt="MARAFET STUDIO — beauty-студія у Боярці"
                 fill
                 priority
