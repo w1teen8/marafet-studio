@@ -31,7 +31,7 @@ export default function FinalCTA() {
       </div>
 
       <Container className="relative z-10 text-center">
-        <h2 className="mx-auto max-w-3xl font-display text-4xl font-medium leading-[1.08] tracking-tight text-white sm:text-6xl md:text-7xl">
+        <h2 className="mx-auto max-w-3xl font-display italic text-4xl font-medium leading-[1.08] tracking-tight text-white sm:text-6xl md:text-7xl">
           {WORDS.map((word, i) => (
             <motion.span
               key={word}

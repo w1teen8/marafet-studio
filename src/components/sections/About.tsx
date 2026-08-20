@@ -35,7 +35,7 @@ export default function About() {
             </span>
 
             <Reveal delay={0.05}>
-              <h2 className="font-display text-4xl font-medium leading-[1.1] tracking-tight text-white sm:text-5xl">
+              <h2 className="font-display italic text-4xl font-medium leading-[1.1] tracking-tight text-white sm:text-5xl">
                 Marafet Studio — це про якість і стиль
               </h2>
             </Reveal>
